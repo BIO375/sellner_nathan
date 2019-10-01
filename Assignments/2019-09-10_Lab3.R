@@ -152,3 +152,5 @@ ggplot(sanchez.csv) +
 ggplot(sanchez.csv)+ geom_boxplot(aes(x = Colony, y = BEETLE96), varwidth = TRUE)
 ggplot(sanchez.csv)+ geom_boxplot(aes(x = Colony, y = log(BEETLE96+1)), varwidth = TRUE)
 
+
+### CODE RUNS CORRECTLY 10/10 ####
