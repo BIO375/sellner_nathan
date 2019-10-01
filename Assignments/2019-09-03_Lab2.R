@@ -74,11 +74,14 @@ data2<-read_csv("datasets/quinn/chpt2/lovett.csv",col_names = TRUE,
                col_types = cols(
                  name = col_character() )
 )
+#### CODE ABOVE IS BROKEN, THERE IS NO VARIABLE NAMED name IN LOVETT
+
 
 # Calculate summary statistics for SO4 and SO4MOD
 # Enter your code below
 summary(data)
 
+#### SHOULD BE DATA2 NOT DATA #####
 
 # Calculate standard deviation for SO4 and SO4MOD
 # Enter your code below
@@ -111,6 +114,7 @@ ggplot(data = data3)+
   stat_summary(aes(x = type, y = measurement), fun.y=mean, colour="darkred", geom="point", 
                shape=18, size=3)
 
+#### CODE BREAKS 2X, GRADE 7/10 ####
 
 
 
