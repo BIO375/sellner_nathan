@@ -109,6 +109,8 @@ ggplot(ward)+
 
 sanchez.csv <- read_csv("datasets/demos/sanchez.csv")
 
+sanchez.csv <- read.csv("datasets/demos/sanchez.csv")
+
 
 
 
