@@ -38,6 +38,8 @@ summ_furness <- furness %>%
 # standard deviation, and sample size are.  
 null_mean <- 23.4722
 
+### CODE BREAKS HERE
+
 # If you are given the values for the sample mean, sd, and n, you can simply define each value as an object 
 # in the environment
 sample_mean <-mean(y)
@@ -55,7 +57,7 @@ earth <- read_csv("datasets/demos/earth.csv", col_names = TRUE)
 heart <- read_csv("datasets/demos/HeartAttack_short.csv")
 view(heart)
 
-
+### CODE BREAKS HERE
 # Identify your response variable using the form dataset$variable_name
 y<-heart$Obliquity
 
@@ -244,6 +246,8 @@ t.test(EGGS ~ ZONE, data = ward, var.equal = TRUE, alternative = "less", conf.le
 
 ## Welch's t-test #########################
 
+### CODE BROKEN, DOES NOT READ IN CORRECT FILE, HAVE THE HEART FILE BELOW
+
 # Read in the Levin et al dataset from Chapter 12 of your book.  
 heart <- read_csv("datasets/demos/HeartAttack_short.csv")
 view(heart)
@@ -306,6 +310,8 @@ ggplot(furness)+
 
 # The Mann-Whitney U Test is equivalent to the Wilcoxon rank-sum test.  Similar to our 2-sample t-test 
 # examples, we give a formula in the form y ~ x or response ~ predictor.
+
+### CODE BROKEN HERE
 
 # Two-sided
 wilcox.test(METRATE ~ SEX, data = furness, alternative = "two.sided", conf.level = 0.95)
