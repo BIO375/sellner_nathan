@@ -59,7 +59,7 @@ view(heart)
 
 ### CODE BREAKS HERE
 # Identify your response variable using the form dataset$variable_name
-y<-heart$Obliquity
+y<-earth$Obliquity
 
 # Calculate summary statistics
 null_mean <- 23.4722
@@ -112,9 +112,15 @@ t.test(range_shift$elevationalRangeShift,
 # These data come from Chapter 12 in your book.
 untidy_blackbird <- read_csv("datasets/abd/chapter12/chap12e2BlackbirdTestosterone.csv")
 
+library(readr)
+elgar <- read_csv("datasets/quinn/chpt3/elgar.csv")
+
 # Begin by exploring the data with histograms, boxplots, and q-q plots
 # Since the assumptions of normality apply to differences, use mutate() to add a column called diff.
 # Note that here diff = After - Before
+
+elgar <- mutate(elgar, diff = HORIZLIG - HORIZDIM)
+
 
 untidy_blackbird <- mutate(untidy_blackbird, diff = afterImplant - beforeImplant)
 
@@ -139,6 +145,8 @@ ggplot(untidy_blackbird)+
 # Note that the confidence intervals are for the mean difference.
 
 # Two-sided
+t.test(elgar$HORIZLIG, elgar$HORIZDIM, alternative = "two.sided", paired = TRUE, conf.level = 0.95)
+
 t.test(untidy_blackbird$afterImplant, untidy_blackbird$beforeImplant, 
        alternative = "two.sided", paired = TRUE, conf.level = 0.95)
 
@@ -251,6 +259,7 @@ t.test(EGGS ~ ZONE, data = ward, var.equal = TRUE, alternative = "less", conf.le
 # Read in the Levin et al dataset from Chapter 12 of your book.  
 heart <- read_csv("datasets/demos/HeartAttack_short.csv")
 view(heart)
+
 
 # Suppose we are interested in potential differences in the proportion of surviving native chinook salmon
 # in the presence and absence of invasive brook trout.
