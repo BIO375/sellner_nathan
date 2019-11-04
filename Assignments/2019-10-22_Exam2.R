@@ -63,6 +63,8 @@ SignTest(baker$diff, alternative = "greater", mu = 0, conf.level = 0.95)
 library(readr)
 alga <- read_csv("datasets/demos/alga.csv")
 
+### CODE BREAKS HERE BC 4 ROWS WHERE TREATMENT = 1 ####
+
 View(alga)
 
 ggplot(alga) +
@@ -77,4 +79,4 @@ ggplot(alga)+
 
 t.test(growthrate ~ Treatment, data = alga, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
 
-
+### ONE CODE BREAK, 5/6 PTS ####
