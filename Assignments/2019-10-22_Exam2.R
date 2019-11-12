@@ -77,6 +77,12 @@ ggplot(alga) +
 ggplot(alga)+
   geom_qq(aes(sample = growthrate, color = Treatment))
 
+summ_alga <- alga %>%
+  group_by(Treatment) %>%
+  summarise(mean_alga = mean(growthrate),
+            median_alga = median(growthrate),
+            var_alga = var(growthrate))
+
 t.test(growthrate ~ Treatment, data = alga, var.equal = TRUE, alternative = "two.sided", conf.level = 0.95)
 
 ### ONE CODE BREAK, 5/6 PTS ####

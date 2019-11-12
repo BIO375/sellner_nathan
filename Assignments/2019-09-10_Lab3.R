@@ -109,8 +109,9 @@ ggplot(ward)+
 
 sanchez.csv <- read_csv("datasets/demos/sanchez.csv")
 
+library(readr)
 sanchez.csv <- read.csv("datasets/demos/sanchez.csv")
-
+view(sanchez.csv)
 
 
 
@@ -118,19 +119,19 @@ sanchez.csv <- read.csv("datasets/demos/sanchez.csv")
 # Enter your code here
 
 summ_sanchez <- sanchez.csv %>%
-  group_by(Colony) %>% 
-  summarise(mean_beetle = mean(BEETLE96),
-            median_beetle = median(BEETLE96),
-            IQR_beetle = IQR(BEETLE96),
-            sd_beetle = sd(BEETLE96),
-            var_beetle = var(BEETLE96))
+  group_by(Forms) %>% 
+  summarise(mean_beetle = mean(Body.Length),
+            median_beetle = median(Body.Length),
+            IQR_beetle = IQR(Body.Length),
+            sd_beetle = sd(Body.Length),
+            var_beetle = var(Body.Length))
 
 
 
 # Add a new column of log(y+1) transformed beetle densities to the sanchez dataset
 # Enter your code here
 
-sanchez.csv<-mutate(sanchez.csv,log_colony = log(BEETLE96+1))
+sanchez.csv<-mutate(sanchez.csv,log_Forms = log(Body.Length+1))
 
 
 
@@ -140,9 +141,9 @@ sanchez.csv<-mutate(sanchez.csv,log_colony = log(BEETLE96+1))
 
 
 ggplot(sanchez.csv) +
-  geom_histogram(aes(BEETLE96), binwidth = 10)+ facet_wrap(~Colony)
+  geom_histogram(aes(Body.Length), binwidth = 10)+ facet_wrap(~Forms)
 ggplot(sanchez.csv) +
-  geom_histogram(aes(log(BEETLE96+1)), binwidth = 0.5)+ facet_wrap(~Colony)
+  geom_histogram(aes(log(Body.Length+1)), binwidth = 0.5)+ facet_wrap(~Forms)
 
 
 # Plot boxplots of beetle density by colony type before and after data 
