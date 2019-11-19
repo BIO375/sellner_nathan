@@ -36,6 +36,7 @@ head(booby)
 
 # Check for the assumption of bivariate normality using a basic scatter 
 # plot
+# :)
 
 ggplot(data = booby) +
   geom_point(mapping = aes(x = nVisitsNestling, y = futureBehavior ))

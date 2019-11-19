@@ -1,4 +1,5 @@
 ### Lab 5. t-tests and friends
+# You can do it! :)
 
 # Clean up the working environment
 rm(list = ls())

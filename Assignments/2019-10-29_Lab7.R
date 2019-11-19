@@ -20,6 +20,8 @@ library("tidyverse")
 # Check for updates
 tidyverse_update()
 
+# You can do it! :)
+
 library(readr)
 Jaffe <- read_csv("datasets/demos/Jaffe.csv")
 View(Jaffe)
