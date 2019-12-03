@@ -197,7 +197,7 @@ ggplot(data = lion, aes(x = proportionBlack, y = ageInYears)) +
 # pollen grains deposited by their pollinators.
 
 iris <- read_csv("datasets/abd/chapter17/chap17f6_3IrisPollination.csv")
-
+view(iris)
 # Examine the data, including the residuals
 model02 <- lm(grainsDeposited ~ tubeLengthMm, data = iris)
 autoplot(model02, smooth.colour = NA)

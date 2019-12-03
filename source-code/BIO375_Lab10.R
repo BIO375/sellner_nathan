@@ -16,7 +16,7 @@ library("tidyverse")
 # Check for updates
 tidyverse_update()
 
-### Exact Binomial test ####
+ ### Exact Binomial test ####
 
 # The simplest way to execute a binomial test is to use the function 
 # binom.test()
@@ -42,8 +42,13 @@ model01
 model02 <- binom.test(x= 28, n=41, p=0.5, alternative = "greater", conf.level = 0.95 )
 model02
 
+#For the Bergen op Zoom population
+41+49
+modelfemale <- binom.test(x= 41, n=90, p=0.5, alternative = "greater", conf.level = 0.95 )
+modelfemale
+
 # So we can conclude that females occured more frequently than expected in the wilderness population in Alaska 
-# (binomial test: P < 0.05, n=46) but not in the Kevo population (binomial test: P > 0.05 n=41).
+# (binomial test: P < 0.05, n=41) but not in the Kevo population (binomial test: P > 0.05 n=46).
 
 ### Chi-squared goodness of fit ####
 
@@ -52,8 +57,12 @@ model02
 # We will start with a non-biological example from your book, because it is useful to see how the data are
 # structured
 
+flower <- read_csv("~/Analyses/sellner_nathan/datasets/demos/flower.csv",
+col_types = cols(color = col_factor()))
+
 birth <- read_csv("datasets/abd/chapter08/chap08e1DayOfBirth.csv", 
                   col_types = cols(day = col_factor()))
+view(birth)
 
 # This file has a single categorical variable, day, that has 7 levels
 
@@ -68,10 +77,17 @@ birth_summ <- birth %>%
   group_by(day)%>%
   summarise(day_n = n())
 
+flower_summ <- flower %>%
+  group_by(color)%>%
+  summarise(color_n = n())
+
 
 # Add two columns, expected and expected_p onto the summary table with the function add_column()
 birth_summ <- add_column(birth_summ, expected= c(52,52,52,52,52,53,52)) %>%
   mutate(expected_p = expected/365)
+
+flower_summ <- add_column(flower_summ, expected= c(75,25)) %>%
+  mutate(expected_p = expected/100)
 
 # All the expected values are greater than 5 so we meet the assumptions of the chi-sq goodness of fit test
 
@@ -84,6 +100,8 @@ birth_summ <- add_column(birth_summ, expected= c(52,52,52,52,52,53,52)) %>%
 model03 <-chisq.test(x = birth_summ$day_n, p = birth_summ$expected_p)
 model03
 
+modelflower <- chisq.test(x = flower_summ$color_n, p = flower_summ$expected_p)
+modelflower
 ### Chi-squared contingency analysis ####
 
 # Contingency analyses are appropriate when you are testing for an association between two or more categorical variables
@@ -93,6 +111,7 @@ model03
 # cancer?  
 
 cancer <- read_csv("datasets/abd/chapter09/chap09e2AspirinCancer.csv")
+view(cancer)
 ggplot(data = cancer) +
   geom_mosaic(aes(x = product(cancer, aspirinTreatment), fill=cancer), na.rm=TRUE)
 
@@ -138,6 +157,9 @@ dimnames(tab01) <- list("Outcome" = c("Cancer", "No Cancer"),
 as.matrix(tab01)
 model05 <- chisq.test(tab01, correct = FALSE)
 model05
+
+
+
 
 ### Fisher's exact test (2x2) ####
 
