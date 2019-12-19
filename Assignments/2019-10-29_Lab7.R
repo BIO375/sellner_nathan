@@ -87,3 +87,5 @@ anova(modellog10Aldrin)
 
 modellog10Aldrin_b <- aov(log10Aldrin ~ Depth, Jaffe)
 TukeyHSD(modellog10Aldrin_b)
+
+#### 10/10 code runs without breaking ####

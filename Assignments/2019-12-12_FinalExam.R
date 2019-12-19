@@ -106,3 +106,5 @@ race
 modelrace <-chisq.test(x = race$obs_freq, p = race$exp_prop)
 modelrace
 modelrace$expected
+
+#### 10/10 code runs without breaking ####

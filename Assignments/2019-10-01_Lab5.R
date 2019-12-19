@@ -96,6 +96,8 @@ two_tailed <- 2*(1-pt(abs(t_sample), df))
 t.test(range_shift$elevationalRangeShift, 
        alternative = "two.sided", mu = 0, conf.level = 0.95)
 
+### CODE BREAKS HERE ###
+
 # One-sided, HA that sample mean is greater than null mean
 t.test(range_shift$elevationalRangeShift, 
        alternative = "greater", mu = 0, conf.level = 0.95)
@@ -332,4 +334,6 @@ wilcox.test(timeToMating ~ feedingStatus, data = cricket, alternative = "greater
 # One-sided, HA that fed less than starved
 wilcox.test(timeToMating ~ feedingStatus, data = cricket, alternative = "less", conf.level = 0.95)
 
+
+### Code breaks 4x, 7/10 ####
 

@@ -48,6 +48,8 @@ ggplot(chap13q20SalmonColor) +
 #    of both groups if the data breaks the assumptions of normality which 
 #    the qq plot does
 
+### WELCH'S BC RATIO TOO LARGE
+
 # b
 # Use a transformation to test whether there is a difference in 
 # mean between these two groups. Is there a difference in the mean 
@@ -122,3 +124,7 @@ t.test(secondsAggressiveActivity ~ genotype, data = chap03q22ZebraFishBoldness, 
 # HO:M(Spr)-M(wild)=0    HA:M(Spr)-M(wild) does not equal zero
 # The evidence against the Ho is that the results of the statistical test resulted in p<0.05 meaning there is a significant difference between time of
 # aggressive behavior between the Spr and wild type groups and so the difference is not equal to zero and therefore we reject the null
+
+
+# Q20, A INCORRECT AND DID NOT TEST RATIO
+### 22/24 PTS ####

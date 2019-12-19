@@ -41,3 +41,5 @@ ggplot(chap12e3HornedLizards) +
 
 ggplot(chap12e3HornedLizards) +
   geom_boxplot(aes(x = squamosalHornLength, y = Survival), binwidth = 10, notch = TRUE, varwidth = TRUE)
+
+#### 9/10 switched x and y in lizard boxplot ####

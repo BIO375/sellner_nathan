@@ -38,6 +38,7 @@ View(sticks)
 
 
 modelsticks <- lme(fixed = headwidth ~ 1,
+                   
                random = ~1|specimen, data = sticks)
 
 modelsticks_varcomp <- VarCorr(modelsticks)
@@ -169,3 +170,5 @@ TukeyHSD(modelcrab)
 # also, the male minor removed group had a significantly lower rate of heat gain than the male major removed group. The other two groups, the 
 # major removed group and minor removed group when compared to the intact male group did not have any significant differences in rates of heat 
 # gain (ONE-way ANOVA, df = 3,80, F = 20.312, p = 6.997e-10)
+
+#### 26/26 code runs without breaking ####
